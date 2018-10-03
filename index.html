@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Client-side Templating</title>
+  <div id="loading">
+    loading...
+  </div>
+  <template id="restaurants-template">
+  	{{#each restaurants}}
+  	<div class="restaurant">
+      <h2>{{name}}</h2>
+      <p>location: {{location}}<br />
+        <ul>
+          {{#each ownedBy}}
+          <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+    <p>
+      <a href="{{yelpPage}}" target="_blank"> Check us out on Yelp </a> <br />
+      {{#if acceptsApplePay}}
+        <img src="./apple-pay-icon.jpg" width="50"/>
+      {{else}}
+        No Apple Pay
+      {{/if}}
+  	{{/each}}
+
+  </template>
+
+</head>
+<body>
+
+
+<script src="jquery-3.3.1.js"></script>
+<script src="handlebars-v4.0.11.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
